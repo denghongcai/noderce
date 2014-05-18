@@ -33,7 +33,7 @@ module.exports = function (app) {
   app.post('/admin/post/write', admin.auth_user, admin.postWrite);
   app.get('/admin/post/edit/:slug', admin.auth_user, admin.postEdit);
   app.post('/admin/post/edit/:slug', admin.auth_user, admin.postEdit);
-  app.post('/admin/post/delete/:slug', admin.auth_user, admin.postDelete);
+  app.get('/admin/post/delete/:slug', admin.auth_user, admin.postDelete);
 
   app.get('/admin/page', admin.auth_user, admin.pageIndex);
   app.get('/admin/page/write', admin.auth_user, admin.pageWrite);

@@ -3,7 +3,7 @@
 <head>
   <title>Noderce 管理中心</title>
   <link rel="stylesheet" href="/admin/assets/style.css">
-  <script src="/libs/jquery/jquery.min.js"></script>
+  <script src="/libs/jquery.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -23,7 +23,7 @@
         <div class='action'>
               <span class='edit'>
                 <a href='/post/<%=item.slug%>' target='_blank'>view</a>
-                <a href='/admin/post/delete/<%item.slug%>' target='_blank'>x</a>
+                <a class='delete' value='/admin/post/delete/<%=item.slug%>'>x</a>
               </span>
         </div>
       </li>
@@ -32,5 +32,13 @@
   </div>
   <div id='clearfix'></div>
 </div>
+<script type="text/javascript">
+    $(function(){
+        $('.delete').click(function(){
+	    if(confirm("是否要删除？"))
+		window.location.href = $(this).attr("value");
+	})
+    })
+</script>
 </body>
 </html>

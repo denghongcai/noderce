@@ -43,8 +43,10 @@ exports.update = function (old_slug, post, callback) {
   })
 };
 
-exports.delete = function (slug, callback) {
-
+exports.delete = function (del_slug, callback) {
+  db.post.remove({slug: del_slug}, function (err, result) {
+    callback(err, result);
+  })
 };
 
 exports.count = function (condition, callback) {

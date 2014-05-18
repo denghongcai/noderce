@@ -90,7 +90,11 @@ exports.postEdit = function (req, res) {
 
 exports.postDelete = function (req, res) {
   if (req.method == "GET") {
-
+    var slug = req.params.slug;
+    postDao.delete(slug, function (err) {
+      if (!err)
+        res.redirect('/admin/post');
+    });
   }
 };
 
