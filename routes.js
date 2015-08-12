@@ -31,8 +31,8 @@ module.exports = function (app) {
   app.get('/admin/post', admin.auth_user, admin.postIndex);
   app.get('/admin/post/write', admin.auth_user, admin.postWrite);
   app.post('/admin/post/write', admin.auth_user, admin.postWrite);
-  app.get('/admin/post/edit/:slug', admin.auth_user, admin.postEdit);
-  app.post('/admin/post/edit/:slug', admin.auth_user, admin.postEdit);
+  app.get('/admin/post/edit/:id', admin.auth_user, admin.postEdit);
+  app.post('/admin/post/edit/:id', admin.auth_user, admin.postEdit);
   app.post('/admin/post/delete/:id', admin.auth_user, admin.postDelete);
 
   app.get('/admin/archive', admin.auth_user, admin.archiveIndex);
