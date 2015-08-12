@@ -13,7 +13,7 @@
     "npm": "1.1.43"
   },
   "dependencies": {
-    "akismet": "0.0.6",
+    "akismet": "0.0.13",
     "async": "^0.9.0",
     "data2xml": "0.9.0",
     "ejs": "0.8.4",
