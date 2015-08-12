@@ -319,7 +319,7 @@ exports.commentIndex = function (req, res) {
 };
 
 exports.commentDelete = function (req, res) {
-  commentDao.deleteById(new ObjectId(req.params.id);, function (err, result) {
+  commentDao.deleteById(new ObjectId(req.params.id), function (err, result) {
     res.redirect("/admin/comment");
   })
 };
