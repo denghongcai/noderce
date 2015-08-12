@@ -16,6 +16,7 @@ var commentDao = require('../dao/comment.js');
 var marked = require('marked');
 var moment = require('moment');
 var formidable = require('formidable');
+var ObjectId = require('mongoose').Types.ObjectId;
 
 var akismet = require('akismet').client({blog: config.akismet_options.blog, apiKey: config.akismet_options.apikey, debug: true});
 
@@ -69,8 +70,7 @@ exports.postWrite = function (req, res) {
 
 // URL : /admin/post/edit
 exports.postEdit = function (req, res) {
-  console.log(req.params);
-  var id = req.params.id;
+  var id = new ObjectId(req.params.id);
   if (req.method == "GET") {
     postDao.get({_id: id}, function (err, post) {
       if (post != null){
