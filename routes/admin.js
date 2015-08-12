@@ -69,6 +69,7 @@ exports.postWrite = function (req, res) {
 
 // URL : /admin/post/edit
 exports.postEdit = function (req, res) {
+  console.log(req.params);
   var id = req.params.id;
   if (req.method == "GET") {
     postDao.get({_id: id}, function (err, post) {
