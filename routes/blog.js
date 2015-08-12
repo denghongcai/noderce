@@ -249,7 +249,7 @@ exports.feed = function (req, res) {
 exports.archives = function (req, res) {
   archiveDao.all(function (err, result) {
     async.map(result, function(item, callback){
-      postDao.findByArchive(item._id.toString(), function(err, result){
+      postDao.findByArchive(item._id, function(err, result){
         callback(null, {
           archiveName: item.archiveName,
           posts: result
