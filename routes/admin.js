@@ -101,14 +101,14 @@ exports.postEdit = function (req, res) {
     };
     postDao.update(id, post, function (err) {
       if (!err)
-        res.redirect('/admin/post/edit/' + post.slug + "?msg=success");
+        res.redirect('/admin/post/edit/' + id + "?msg=success");
     });
   }
 };
 
 exports.postDelete = function (req, res) {
   if (req.method == "POST") {
-    var id = req.params.id;
+    var id = new ObjectId(req.params.id);
     postDao.delete(id, function(err, result){
       if(!err)
         res.json({status: 'ok'});
@@ -220,7 +220,7 @@ exports.archiveEdit = function (req, res) {
 // URL: /admin/archive/delete
 exports.archiveDelete = function (req, res) {
   if(req.method == 'POST'){
-    var id = req.params.id;
+    var id = new ObjectId(req.params.id);
     archiveDao.delete(id, function(err, result){
       // 将具有该分类的文章的分类置空
       postDao.findByArchive(id, function(error, res){
@@ -319,7 +319,7 @@ exports.commentIndex = function (req, res) {
 };
 
 exports.commentDelete = function (req, res) {
-  commentDao.deleteById(req.params.id, function (err, result) {
+  commentDao.deleteById(new ObjectId(req.params.id);, function (err, result) {
     res.redirect("/admin/comment");
   })
 };
