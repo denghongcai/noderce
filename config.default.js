@@ -75,4 +75,3 @@ var generate_mongo_url = function (obj) {
   }
 };
 exports.db = mongoskin.db(generate_mongo_url(mongo));*/
-//mongodb settings for appfog mongodb service END
