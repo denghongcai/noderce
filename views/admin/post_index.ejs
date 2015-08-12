@@ -23,7 +23,7 @@
         <div class='action'>
               <span class='edit'>
                 <a href='/post/<%=item.slug%>' target='_blank'>view</a>
-                <a class='delete' value='/admin/post/delete/<%=item.slug%>'>x</a>
+                <a href='/admin/post/delete/<%=item._id%>' class="del" target='_blank'>x</a>
               </span>
         </div>
       </li>
@@ -33,12 +33,21 @@
   <div id='clearfix'></div>
 </div>
 <script type="text/javascript">
-    $(function(){
-        $('.delete').click(function(){
-	    if(confirm("是否要删除？"))
-		window.location.href = $(this).attr("value");
-	})
+  $(document).ready(function() {
+    $('.del').click(function(){
+      event.preventDefault();
+      if(confirm('确认删除？')){
+        $.post($(this).attr('href'), function(data){
+          if(data.status == 'ok'){
+            alert('删除成功');
+            location.reload(true);
+          }else{
+            alert('删除失败');
+          }
+        }, 'json');
+      }
     })
+  })
 </script>
 </body>
 </html>
